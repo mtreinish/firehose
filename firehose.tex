@@ -95,9 +95,21 @@
 \end{frame}
 }
 
+\section{OpenStack Infrastructure}
+\begin{frame}
+\frametitle{OpenStack Infrastructure}
+A big complicated diagram
+\end{frame}
+
+
 \section{Firehose}
 \begin{frame}
 	\frametitle{Firehose}
+    \begin{itemize}
+        \item An infra run MQTT broker
+        \item Has public readonly access via MQTT and MQTT over Websockets on Port 80
+        \item 
+    \end{itemize}
 \end{frame}
 
 \subsection{MQTT}
@@ -105,11 +117,39 @@
 	\frametitle{MQTT}
 \end{frame}
 
+\subsection{Services Using the Firehose}
+\begin{frame}
+    \frametitle{Services Using the Firehose}
+    \begin{center}
+        \begin{tabular}{ccc}
+            \hline
+            \textbf{Service} & \textbf{Base Topic} & \textbf{Source of Messages}\\
+            \hline
+            Gerrit & gerrit & \href{http://git.openstack.org/cgit/openstack-infra/germqtt/}{germqtt} \\
+            Launchpad & launchpad & \href{http://git.openstack.org/cgit/openstack-infra/lpmqtt/}{lpmqtt} \\
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\subsection{Future Plans}
+\begin{frame}
+    \frametitle{Future Plans}
+    \begin{itemize}
+        \item Zuul Subscriber Support to gerrit
+        \item Add addtional publishers:
+            \begin{itemize}
+                \item Ansible
+                \item Nodepool
+                \item Logstash
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
 \section{More Information}
 \begin{frame}
 \frametitle{Where to get more information}
     \begin{itemize}
-        \item openstack-infra ML\: \href{mailto:openstack-infra@lists.openstack.org}{openstack-dev@lists.openstack.org}
+        \item openstack-infra ML\: \href{mailto:openstack-infra@lists.openstack.org}{openstack-infra@lists.openstack.org}
         \item \#openstack-infra on Freenode
 		\item \href{http://docs.openstack.org/infra/system-config/firehose.html}{http://docs.openstack.org/infra/system-config/firehose.html}
     \end{itemize}
