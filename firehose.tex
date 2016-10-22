@@ -133,9 +133,20 @@ mosquitto-clients package on many distros):
     \end{center}
 \end{frame}
 
-\subsection{Services Using the Firehose}
+\subsection{Services in the Firehose}
 \begin{frame}
     \frametitle{Services Using the Firehose}
+
+Topics start with the name of the service publishing the
+messages while subsequent levels are specified by the publisher, like:
+
+    \begin{center}
+        \texttt{gerrit/openstack-infra/germqtt/comment-added}
+    \end{center}
+
+In this case "gerrit" is the service, while the remainder is set by the
+germqtt publisher daemon. Services currently published:
+
     \begin{center}
         \begin{tabular}{ccc}
             \hline
