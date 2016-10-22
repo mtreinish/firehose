@@ -107,9 +107,10 @@
 \begin{frame}
 	\frametitle{Firehose}
     \begin{itemize}
-        \item An infra run MQTT broker
-        \item Has public readonly access via MQTT and MQTT over Websockets on Port 80
-        \item 
+        \item An MQTT broker for the OpenStack community infrastructure
+        \item Has anonymous, read-only access via MQTT on 1883/tcp
+        \item SSL/TLS MQTT also available on 8883/tcp
+        \item Websockets supported (but temporarily disabled)
     \end{itemize}
 \end{frame}
 
