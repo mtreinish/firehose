@@ -117,6 +117,20 @@
 \subsection{MQTT}
 \begin{frame}
 	\frametitle{MQTT}
+    \begin{itemize}
+        \item Pub/sub messaging protocol
+        \item Formerly MQ Telemetry Transport
+        \item ISO/IEC PRF 20922
+        \item Protocol dates back to 1999
+        \item Lightweight design, low bandwidth
+    \end{itemize}
+
+Example mosquitto client subscriber command line (provided in a
+mosquitto-clients package on many distros):
+
+    \begin{center}
+\texttt{mosquitto\_sub \--h firehose.openstack.org \--\--topic '\#'}
+    \end{center}
 \end{frame}
 
 \subsection{Services Using the Firehose}
