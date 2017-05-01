@@ -102,8 +102,7 @@
 \textbf{Imagine a big, complicated diagram here.}
 \end{frame}
 
-
-\section{Firehose}
+\subsection{Firehose Introduction}
 \begin{frame}
 	\frametitle{Firehose}
     \begin{itemize}
@@ -114,7 +113,7 @@
     \end{itemize}
 \end{frame}
 
-\subsection{MQTT}
+\section{MQTT}
 \begin{frame}
 	\frametitle{MQTT}
     \begin{itemize}
@@ -124,42 +123,78 @@
         \item Protocol dates back to 1999
         \item Lightweight design, low bandwidth
     \end{itemize}
+\end{frame}
 
-Example mosquitto client subscriber command line (provided in a
-mosquitto-clients package on many distros):
+\begin{frame}
+    \frametitle{MQTT Topics}
+    \begin{itemize}
+        \item Topcis are heirarchical
+        \item Support wild carding
+    \end{itemize}
+\end{frame}
 
-    \begin{center}
-\texttt{mosquitto\_sub \--h firehose.openstack.org \--\--topic '\#'}
-    \end{center}
+\begin{frame}
+    \frametitle{MQTT Brokers}
+\end{frame}
+
+\begin{frame}
+    \frametitle{MQTT Clients}
+
+\end{frame}
+
+
+\section{Firehose in detail}
+\begin{frame}
+    \frametitle{The Firehose}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Mosquitto}
 \end{frame}
 
 \subsection{Services in the Firehose}
 \begin{frame}
     \frametitle{Services Using the Firehose}
-
-Topics start with the name of the service publishing the
-messages while subsequent levels are specified by the publisher, like:
-
-    \begin{center}
-        \texttt{gerrit/openstack-infra/germqtt/comment-added}
-    \end{center}
-
-In this case "gerrit" is the service, while the remainder is set by the
-germqtt publisher daemon. Services currently published:
-
     \begin{center}
         \begin{tabular}{ccc}
             \hline
             \textbf{Service} & \textbf{Base Topic} & \textbf{Source of Messages}\\
             \hline
+            Ansible & ansible & \href{http://git.openstack.org/cgit/openstack-infra/system-config/tree/modules/openstack_project/files/puppetmaster/mqtt.py}{Ansible MQTT Callback Plugin} \\
             Gerrit & gerrit & \href{http://git.openstack.org/cgit/openstack-infra/germqtt/}{germqtt} \\
             Launchpad & launchpad & \href{http://git.openstack.org/cgit/openstack-infra/lpmqtt/}{lpmqtt} \\
-            Logstash & logstash & \href{https://github.com/kompa3/logstash-output-mqtt}{logstash-output-mqtt} \\
+            Subunit Gearman Worker & gearman-subunit & \href{http://git.openstack.org/cgit/openstack-infra/puppet-subunit2sql/tree/files/subunit-gearman-worker.py}{subunit-gearman-worker} \\
         \end{tabular}
     \end{center}
 \end{frame}
 
-\subsection{Future Plans}
+\begin{frame}
+    \frametitle{Typical Firehose Load}
+    % Show grafana graphs for message load
+\end{frame}
+
+\begin{frame}
+    \frametitle{The limits of scaling}
+    % Graphs from our pending scale test
+\end{frame}
+
+\begin{frame}
+    \frametitle{Using Firehose}
+    Example mosquitto client subscriber command line (provided in a
+mosquitto-clients package on many distros):
+
+    \begin{center}
+        \texttt{mosquitto\_sub \--h firehose.openstack.org \--\--topic '\#'}
+    \end{center}
+\end{frame}
+
+% Add another example
+
+\begin{frame}
+    \frametitle{Potential Applications for Firehose}
+\end{frame}
+
+\section{Future Plans}
 \begin{frame}
     \frametitle{Future Plans}
     \begin{itemize}
@@ -170,8 +205,8 @@ germqtt publisher daemon. Services currently published:
             \end{itemize}
         \item Add more publishers:
             \begin{itemize}
-                \item The Infra Ansible/Puppet wheel
                 \item Nodepool daemons
+                \item Zuul v3+
                 \item (your favorite service here)
             \end{itemize}
     \end{itemize}
@@ -184,6 +219,7 @@ germqtt publisher daemon. Services currently published:
         \item openstack-infra ML\: \href{mailto:openstack-infra@lists.openstack.org}{openstack-infra@lists.openstack.org}
         \item \#openstack-infra on Freenode
 	\item \href{http://docs.openstack.org/infra/system-config/firehose.html}{http://docs.openstack.org/infra/system-config/firehose.html}
+    \item \href{https://docs.openstack.org/infra/system-config/firehose_schema.html}{https://docs.openstack.org/infra/system-config/firehose\_schema.html}
 	\item \href{http://specs.openstack.org/openstack-infra/infra-specs/specs/firehose.html}{http://specs.openstack.org/openstack-infra/infra-specs/specs/firehose.html}
 	\item \href{http://mqtt.org/}{http://mqtt.org/}
 	\item \href{https://mosquitto.org/}{https://mosquitto.org/}
