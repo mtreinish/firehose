@@ -181,7 +181,21 @@
 
 \begin{frame}
     \frametitle{The limits of scaling}
-    % Graphs from our pending scale test
+    \centering
+    \includegraphics[width=.9\textwidth]{manual-load-test.png}
+\end{frame}
+
+\begin{frame}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \textbf{CPU Usage:}\\
+            \includegraphics[width=\textwidth]{manual_load_cpu_usage.png}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \textbf{Memory Usage:}\\
+            \includegraphics[width=\textwidth]{manual_load_ram_usage.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -194,7 +208,17 @@ mosquitto-clients package on many distros):
     \end{center}
 \end{frame}
 
-% Add another example
+\begin{frame}
+    \frametitle{Listen for all Nova Comments in python}
+    \begin{itemize}
+        \item \textbf{CLI:}\\
+            \textit{mosquitto\_sub \--h firehose.openstack.org \--\--topic gerrit/openstack/nova/comment-added}
+        \item \textbf{Python:}\\
+            \lstinputlisting[basicstyle=\tiny,language=python]{python_nova_sub.py}
+    \end{itemize}
+\end{frame}
+
+% Add anotuer example
 
 \begin{frame}
     \frametitle{Potential Applications for Firehose}
