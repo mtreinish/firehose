@@ -146,10 +146,21 @@
 \section{Firehose in detail}
 \begin{frame}
     \frametitle{The Firehose}
+
 \end{frame}
 
 \begin{frame}
     \frametitle{Mosquitto}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item MQTT broker implemented in C
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{mosquitto.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \subsection{Services in the Firehose}
@@ -230,7 +241,6 @@ mosquitto-clients package on many distros):
     \begin{itemize}
         \item Add germqtt subscription support to:
             \begin{itemize}
-                \item Gerritbot (already PoC)
                 \item Zuul v3+
             \end{itemize}
         \item Add more publishers:
