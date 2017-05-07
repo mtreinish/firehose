@@ -128,8 +128,29 @@
 \begin{frame}
     \frametitle{MQTT Topics}
     \begin{itemize}
+        \item Topics are generated dynamically
         \item Topics are heirarchical
-        \item Support wild carding
+        \item Support wildcarding
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Topic Examples}
+    \textbf{sensors/\textit{HOSTNAME}/temperature/\textit{HDD\_NAME}}
+    \begin{itemize}
+        \item sensors/sinanju/temperature/nvme0n1p1
+        \item sensors/\texttt{+}/temperature/\texttt{+}
+        \item sensors/sinanju/temperature/\texttt{+}
+        \item sensors/sinanju/\#
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{QoS}
+    \begin{itemize}
+        \item \textbf{0}: The broker/client will deliver the message once, with no confirmation.
+        \item \textbf{1}: The broker/client will deliver the message at least once, with confirmation required.
+        \item \textbf{2}: The broker/client will deliver the message exactly once by using a four step handshake.
     \end{itemize}
 \end{frame}
 
@@ -255,6 +276,11 @@ mosquitto-clients package on many distros):
 
 \begin{frame}
     \frametitle{Potential Applications for Firehose}
+    \begin{itemize}
+        \item 3rd Party CI Operators
+        \item Desktop Notifications
+        \item Intra Service communication
+    \end{itemize}
 \end{frame}
 
 \section{Future Plans}
