@@ -128,25 +128,33 @@
 \begin{frame}
     \frametitle{MQTT Topics}
     \begin{itemize}
-        \item Topcis are heirarchical
+        \item Topics are heirarchical
         \item Support wild carding
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{MQTT Brokers}
+    \begin{itemize}
+        \item Centralized broker
+        \item Many different options: \href{https://github.com/mqtt/mqtt.github.io/wiki/servers}{https://github.com/mqtt/mqtt.github.io/wiki/servers}
+     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{MQTT Clients}
-
+    \begin{itemize}
+        \item Bindings for most languages
+        \item \href{https://github.com/mqtt/mqtt.github.io/wiki/libraries}{https://github.com/mqtt/mqtt.github.io/wiki/libraries}
+        \item 
+    \end{itemize}
 \end{frame}
 
 
 \section{Firehose in detail}
 \begin{frame}
     \frametitle{The Firehose}
-
+    
 \end{frame}
 
 \begin{frame}
@@ -229,6 +237,20 @@ mosquitto-clients package on many distros):
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Listen for all ansible tasks on health.openstack.org}
+    \begin{itemize}
+        \item \textbf{ruby:} \\
+            \lstinputlisting[basicstyle=\small,language=ruby]{ruby_health_sub.rb}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item \textbf{go:} \\
+            \lstinputlisting[basicstyle=\tiny]{go_health_sub.go}
+    \end{itemize}
+\end{frame}
 % Add anotuer example
 
 \begin{frame}
