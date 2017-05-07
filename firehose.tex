@@ -105,12 +105,19 @@
 \subsection{Firehose Introduction}
 \begin{frame}
 	\frametitle{Firehose}
-    \begin{itemize}
-        \item An MQTT broker for the OpenStack community infrastructure
-        \item Has anonymous, read-only access via MQTT on 1883/tcp
-        \item SSL/TLS MQTT also available on 8883/tcp
-        \item Websockets supported (but temporarily disabled)
-    \end{itemize}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item An MQTT broker for the OpenStack community infrastructure
+                \item Has anonymous, read-only access via MQTT on 1883/tcp
+                \item SSL/TLS MQTT also available on 8883/tcp
+                \item Websockets supported (but temporarily disabled)
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{firehose.jpg}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{MQTT}
@@ -119,7 +126,7 @@
     \begin{itemize}
         \item Pub/sub messaging protocol
         \item Formerly MQ Telemetry Transport
-        \item ISO/IEC PRF 20922
+        \item ISO/IEC 20922
         \item Protocol dates back to 1999
         \item Lightweight design, low bandwidth
     \end{itemize}
@@ -165,9 +172,9 @@
 \begin{frame}
     \frametitle{MQTT Clients}
     \begin{itemize}
-        \item Bindings for most languages
+        \item Bindings available for most languages
         \item \href{https://github.com/mqtt/mqtt.github.io/wiki/libraries}{https://github.com/mqtt/mqtt.github.io/wiki/libraries}
-        \item 
+        \item \href{https://www.eclipse.org/paho/}{Eclipse Paho} project provides similar interfaces across multiple languages
     \end{itemize}
 \end{frame}
 
