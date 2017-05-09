@@ -1,6 +1,7 @@
 import csv
 from matplotlib import cm
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import pandas
@@ -61,10 +62,9 @@ ax = Axes3D(fig)
 out_bench.reset_index(inplace=True)
 print bench_dat
 
-import matplotlib.ticker as mticker
 
 def log_tick_formatter(val, pos=None):
-    return "{:.2e}".format(2**val)
+    return str(pow(2, val))
 
 surf = ax.plot_trisurf(np.log2(bench_dat['Subscriber Count']),
                        np.log2(bench_dat['Publisher Count']),
@@ -77,6 +77,9 @@ fig.colorbar(surf, shrink=0.5, aspect=5)
 plt.xlabel('Number of Subscribers')
 plt.ylabel('Number of Publishers')
 plt.title('Subscriber Average Throughput (msg/sec)')
+formatter = mticker.FuncFormatter(log_tick_formatter)
+ax.yaxis.set_major_formatter(formatter)
+ax.xaxis.set_major_formatter(formatter)
 plt.savefig('sub_throughput.png', dpi=900)
 
 fig = plt.figure()
@@ -88,6 +91,9 @@ surf = ax.plot_trisurf(np.log2(bench_pub_dat['Publisher Count']),
                        linewidth=0.2)
 
 fig.colorbar(surf, shrink=0.5, aspect=5)
+formatter = mticker.FuncFormatter(log_tick_formatter)
+ax.yaxis.set_major_formatter(formatter)
+ax.xaxis.set_major_formatter(formatter)
 
 plt.ylabel('Number of Subscribers')
 plt.xlabel('Number of Publishers')
