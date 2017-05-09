@@ -60,34 +60,31 @@ fig = plt.figure()
 ax = Axes3D(fig)
 out_bench.reset_index(inplace=True)
 print bench_dat
-ax.plot_trisurf(bench_dat['Subscriber Count'],
-                bench_dat['Publisher Count'],
-                bench_dat['Subscriber Avg. Throughput'],
-                cmap=cm.coolwarm,
-                linewidth=0.2)
 
-#ax.set_yscale('log')
-#ax.set_xscale('log')
+import matplotlib.ticker as mticker
+
+def log_tick_formatter(val, pos=None):
+    return "{:.2e}".format(2**val)
+
+ax.plot_trisurf(np.log2(bench_dat['Subscriber Count']),
+                np.log2(bench_dat['Publisher Count']),
+                bench_dat['Subscriber Avg. Throughput'],
+                cmap=cm.inferno,
+                linewidth=0.2)
 plt.xlabel('Number of Subscribers')
-ax.set_xlim([0, 1024])
-ax.set_ylim([0, 1024])
 plt.ylabel('Number of Publishers')
 plt.title('Subscriber Average Throughput (msg/sec)')
 plt.savefig('sub_throughput.png', dpi=900)
 
 fig = plt.figure()
 ax = Axes3D(fig)
-ax.plot_trisurf(bench_pub_dat['Subscriber Count'],
-                bench_pub_dat['Publisher Count'],
+ax.plot_trisurf(np.log2(bench_pub_dat['Publisher Count']),
+                np.log2(bench_pub_dat['Subscriber Count']),
                 bench_pub_dat['Publisher Avg. Throughput'],
-                cmap=cm.coolwarm,
+                cmap=cm.inferno,
                 linewidth=0.2)
 
-#ax.set_yscale('log')
-#ax.set_xscale('log')
-plt.xlabel('Number of Subscribers')
-ax.set_xlim([0, 1024])
-ax.set_ylim([0, 1024])
-plt.ylabel('Number of Publishers')
+plt.ylabel('Number of Subscribers')
+plt.xlabel('Number of Publishers')
 plt.title('Publisher Average Throughput (msg/sec)')
 plt.savefig('pub_throughput.png', dpi=900)

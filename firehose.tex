@@ -246,6 +246,21 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Benchmarking Performance}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+%            \textbf{CPU Usage:}\\
+            \includegraphics[width=\textwidth]{sub_throughput.png}
+        \end{column}
+        \begin{column}{.48\textwidth}
+%            \textbf{Memory Usage:}\\
+            \includegraphics[width=\textwidth]{pub_throughput.png}
+        \end{column}
+    \end{columns}
+    \href{https://github.com/mtreinish/pymqttbench}{https://github.com/mtreinish/pymqttbench}
+\end{frame}
+
+\begin{frame}
     \frametitle{Using Firehose}
     Example mosquitto client subscriber command line (provided in a
 mosquitto-clients package on many distros):
