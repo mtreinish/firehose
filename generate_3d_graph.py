@@ -66,11 +66,14 @@ import matplotlib.ticker as mticker
 def log_tick_formatter(val, pos=None):
     return "{:.2e}".format(2**val)
 
-ax.plot_trisurf(np.log2(bench_dat['Subscriber Count']),
-                np.log2(bench_dat['Publisher Count']),
-                bench_dat['Subscriber Avg. Throughput'],
-                cmap=cm.inferno,
-                linewidth=0.2)
+surf = ax.plot_trisurf(np.log2(bench_dat['Subscriber Count']),
+                       np.log2(bench_dat['Publisher Count']),
+                       bench_dat['Subscriber Avg. Throughput'],
+                       cmap=cm.inferno,
+                       linewidth=0.2)
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
+
 plt.xlabel('Number of Subscribers')
 plt.ylabel('Number of Publishers')
 plt.title('Subscriber Average Throughput (msg/sec)')
@@ -78,11 +81,13 @@ plt.savefig('sub_throughput.png', dpi=900)
 
 fig = plt.figure()
 ax = Axes3D(fig)
-ax.plot_trisurf(np.log2(bench_pub_dat['Publisher Count']),
-                np.log2(bench_pub_dat['Subscriber Count']),
-                bench_pub_dat['Publisher Avg. Throughput'],
-                cmap=cm.inferno,
-                linewidth=0.2)
+surf = ax.plot_trisurf(np.log2(bench_pub_dat['Publisher Count']),
+                       np.log2(bench_pub_dat['Subscriber Count']),
+                       bench_pub_dat['Publisher Avg. Throughput'],
+                       cmap=cm.inferno,
+                       linewidth=0.2)
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
 
 plt.ylabel('Number of Subscribers')
 plt.xlabel('Number of Publishers')

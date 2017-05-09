@@ -182,18 +182,23 @@
 \section{Firehose in detail}
 \begin{frame}
     \frametitle{The Firehose}
-    \begin{center}
-        \begin{tabular}{ccc}
-            \hline
-            RAM & 2 GB \\
-            swap & 0 B \\
-            vCPUs & 2 \\
-            clock & 2.6 GHz \\
-            disk & 40 GB \\
-            bandwidth & 200 Mbps \\
-            \hline
-        \end{tabular}
-    \end{center}
+    \begin{itemize}
+        \item Runs Mosquitto MQTT broker
+        \item Single broker instance
+        \item \textbf{Hardware Specs:}
+        \begin{center}
+            \begin{tabular}{ccc}
+                \hline
+                vCPUs & 2 \\
+                CPU Frequency & 2.6 GHz \\
+                RAM & 2 GB \\
+                swap  & 0 B \\
+                Disk & 40 GB \\
+                Bandwidth & 200 Mbps \\
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -202,6 +207,8 @@
         \begin{column}{.48\textwidth}
             \begin{itemize}
                 \item MQTT broker implemented in C
+                \item An Eclipse IoT project
+                \item Support for MQTT v3.1 and v3.1.1
             \end{itemize}
         \end{column}
         \begin{column}{.48\textwidth}
@@ -238,7 +245,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{The limits of scaling}
+    \frametitle{Manually Load Testing}
     \centering
     \includegraphics[width=.9\textwidth]{manual-load-test.png}
 \end{frame}
@@ -260,11 +267,9 @@
     \frametitle{Benchmarking Performance}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
-%            \textbf{CPU Usage:}\\
             \includegraphics[width=\textwidth]{sub_throughput.png}
         \end{column}
         \begin{column}{.48\textwidth}
-%            \textbf{Memory Usage:}\\
             \includegraphics[width=\textwidth]{pub_throughput.png}
         \end{column}
     \end{columns}
@@ -305,7 +310,6 @@ mosquitto-clients package on many distros):
             \lstinputlisting[basicstyle=\tiny]{go_health_sub.go}
     \end{itemize}
 \end{frame}
-% Add anotuer example
 
 \begin{frame}
     \frametitle{Potential Applications for Firehose}
