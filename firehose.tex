@@ -275,33 +275,6 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Using Firehose}
-    Example mosquitto client subscriber command line (provided in a
-mosquitto-clients package on many distros):
-
-    \begin{center}
-        \texttt{mosquitto\_sub \--h firehose.openstack.org \--\--topic '\#'}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Listen for all Nova Comments in python}
-    \begin{itemize}
-        \item \textbf{CLI:}\\
-            \textit{mosquitto\_sub \--h firehose.openstack.org \--\--topic gerrit/openstack/nova/comment-added}
-        \item \textbf{Python:}\\
-            \lstinputlisting[basicstyle=\tiny,language=python]{python_nova_sub.py}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \begin{itemize}
-        \item \textbf{go:} \\
-            \lstinputlisting[basicstyle=\tiny,language=golang]{go_health_sub.go}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
     \frametitle{Applications for Firehose}
     \begin{itemize}
         \item 3rd Party CI Operators
