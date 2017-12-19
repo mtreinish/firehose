@@ -61,6 +61,7 @@
             \column{.45\linewidth}
             \centering
             Matthew Treinish\\
+            Open Source Developer Advocate - IBM\\
             \href{mailto:mtreinish@kortar.org}{mtreinish@kortar.org}\\
         \texttt{mtreinish on Freenode}
         \column{.45\linewidth}
@@ -72,10 +73,10 @@
         }
     {Matthew Treinish & Jeremy Stanley}
 }
-\date{May 11, 2017}
+\date{January 23, 2018}
 
-\title[Firehose: a Unified Message Bus for Infra Services
-\hspace{2em}\insertframenumber/\inserttotalframenumber]{Firehose: a Unified Message Bus for Infra Services}
+\title[MQTT as a Unified Message Bus for Infrastructure Services
+\hspace{2em}\insertframenumber/\inserttotalframenumber]{MQTT as a Unified Message Bus for Infrastructure Services}
 
 \begin{document}
 
@@ -92,34 +93,11 @@
     \setbeamercolor{background}{bg=openstack}
     \titlepage{}
     \centering
-    \href{https://github.com/mtreinish/firehose/tree/boston-summit}{https://github.com/mtreinish/firehose/tree/boston-summit}
+    \href{https://github.com/mtreinish/firehose/tree/lca2018}{https://github.com/mtreinish/firehose/tree/lca2018}
 \end{frame}
 }
 
-\section{OpenStack Infrastructure}
-\begin{frame}
-\frametitle{OpenStack Infrastructure}
-\centering
-\textbf{Imagine a big, complicated diagram here.}
-\end{frame}
-
-\subsection{Firehose Introduction}
-\begin{frame}
-	\frametitle{Firehose}
-    \begin{columns}[T]
-        \begin{column}{.48\textwidth}
-            \begin{itemize}
-                \item An MQTT broker for the OpenStack community infrastructure
-                \item Has anonymous, read-only access via MQTT on 1883/tcp
-                \item SSL/TLS MQTT also available on 8883/tcp
-                \item Websockets supported (but temporarily disabled)
-            \end{itemize}
-        \end{column}
-        \begin{column}{.48\textwidth}
-            \includegraphics[width=\textwidth]{firehose.jpg}
-        \end{column}
-    \end{columns}
-\end{frame}
+\section{MQTT Introduction}
 
 \section{MQTT}
 \begin{frame}
@@ -179,7 +157,23 @@
      \end{itemize}
 \end{frame}
 
-\section{Firehose in detail}
+\section{OpenStack Community Infrastructure Firehose}
+\begin{frame}
+	\frametitle{Firehose}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item An MQTT broker for the OpenStack community infrastructure
+                \item Has anonymous, read-only access via MQTT on 1883/tcp
+                \item SSL/TLS MQTT also available on 8883/tcp
+                \item Websockets supported (but temporarily disabled)
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{firehose.jpg}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 \begin{frame}
     \frametitle{Mosquitto}
@@ -232,6 +226,7 @@
             Gerrit & gerrit & \href{http://git.openstack.org/cgit/openstack-infra/germqtt/}{germqtt} \\
             Launchpad & launchpad & \href{http://git.openstack.org/cgit/openstack-infra/lpmqtt/}{lpmqtt} \\
             Subunit Gearman Worker & gearman-subunit & \href{http://git.openstack.org/cgit/openstack-infra/puppet-subunit2sql/tree/files/subunit-gearman-worker.py}{subunit-gearman-worker} \\
+            Logstash Workers & gearman-logstash & \href{http://git.openstack.org/cgit/openstack-infra/puppet-log_processor/tree/files/log-gearman-worker.py}{logstash-gearman-worker} \\
         \end{tabular}
     \end{center}
 \end{frame}
@@ -300,14 +295,6 @@ mosquitto-clients package on many distros):
 \end{frame}
 
 \begin{frame}
-    \frametitle{Listen for all ansible tasks on health.openstack.org}
-    \begin{itemize}
-        \item \textbf{ruby:} \\
-            \lstinputlisting[basicstyle=\small,language=ruby]{ruby_health_sub.rb}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
     \begin{itemize}
         \item \textbf{go:} \\
             \lstinputlisting[basicstyle=\tiny,language=golang]{go_health_sub.go}
@@ -315,7 +302,7 @@ mosquitto-clients package on many distros):
 \end{frame}
 
 \begin{frame}
-    \frametitle{Potential Applications for Firehose}
+    \frametitle{Applications for Firehose}
     \begin{itemize}
         \item 3rd Party CI Operators
         \item Desktop Notifications
@@ -323,35 +310,17 @@ mosquitto-clients package on many distros):
     \end{itemize}
 \end{frame}
 
-\section{Future Plans}
-\begin{frame}
-    \frametitle{Future Plans}
-    \begin{itemize}
-        \item Add germqtt subscription support to:
-            \begin{itemize}
-                \item Zuul v3+
-            \end{itemize}
-        \item Add more publishers:
-            \begin{itemize}
-                \item Nodepool daemons
-                \item Zuul v3+
-                \item (your favorite service here)
-            \end{itemize}
-    \end{itemize}
-\end{frame}
-
 \section{More Information}
 \begin{frame}
 \frametitle{Where to get more information}
     \begin{itemize}
+	    \item \href{http://mqtt.org/}{http://mqtt.org/}
+	    \item \href{https://mosquitto.org/}{https://mosquitto.org/}
+        \item \href{https://www.eclipse.org/paho/}{https://www.eclipse.org/paho/}
         \item openstack-infra ML\: \href{mailto:openstack-infra@lists.openstack.org}{openstack-infra@lists.openstack.org}
         \item \#openstack-infra on Freenode
 	    \item \href{http://docs.openstack.org/infra/system-config/firehose.html}{http://docs.openstack.org/infra/system-config/firehose.html}
         \item \href{https://docs.openstack.org/infra/system-config/firehose_schema.html}{https://docs.openstack.org/infra/system-config/firehose\_schema.html}
-	    \item \href{http://specs.openstack.org/openstack-infra/infra-specs/specs/firehose.html}{http://specs.openstack.org/openstack-infra/infra-specs/specs/firehose.html}
-	    \item \href{http://mqtt.org/}{http://mqtt.org/}
-	    \item \href{https://mosquitto.org/}{https://mosquitto.org/}
-        \item \href{https://www.eclipse.org/paho/}{https://www.eclipse.org/paho/}
     \end{itemize}
 \end{frame}
 
