@@ -78,6 +78,14 @@
 \title[MQTT as a Unified Message Bus for Infrastructure Services
 \hspace{2em}\insertframenumber/\inserttotalframenumber]{MQTT as a Unified Message Bus for Infrastructure Services}
 
+\newcommand\Wider[2][3em]{%
+\makebox[\linewidth][c]{%
+  \begin{minipage}{\dimexpr\textwidth+#1\relax}
+  \raggedright#2
+  \end{minipage}%
+  }%
+}
+
 \begin{document}
 
 {%
@@ -112,23 +120,22 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{MQTT Topics}
-    \begin{itemize}
-        \item Topics are generated dynamically
-        \item Topics are heirarchical
-        \item Supports wildcarding
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Topic Examples}
-    \textbf{sensors/\textit{HOSTNAME}/temperature/\textit{HDD\_NAME}}
-    \begin{itemize}
-        \item sensors/sinanju/temperature/nvme0n1p1
-        \item sensors/\texttt{+}/temperature/\texttt{+}
-        \item sensors/sinanju/temperature/\texttt{+}
-        \item sensors/sinanju/\#
-    \end{itemize}
+    \frametitle{MQTT Topics and Subscriptions}
+        \begin{itemize}
+            \item Topics are generated dynamically
+            \item Topics are heirarchical
+            \item Supports wildcarding
+        \end{itemize}
+    \vspace{5mm}
+    \Wider[4em]{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Examples:}
+        \usebeamerfont{normal text}\usebeamercolor[fg]{normal text}
+        \textbf{sensors/\textit{HOSTNAME}/temperature/\textit{HDD\_NAME}}
+        \begin{itemize}
+            \item sensors/sinanju/temperature/nvme0n1p1
+            \item sensors/\texttt{+}/temperature/\texttt{+}
+            \item sensors/sinanju/temperature/\texttt{+}
+            \item sensors/sinanju/\#
+        \end{itemize}
 \end{frame}
 
 \begin{frame}
