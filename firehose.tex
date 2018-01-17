@@ -116,7 +116,22 @@
     \end{itemize}
 \end{frame}
 
-\section{MQTT Introduction}
+\begin{frame}
+	\frametitle{OpenStack Community Infrastructure Firehose}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item An MQTT broker for the OpenStack community infrastructure
+                \item Has anonymous, read-only access via MQTT on 1883/tcp
+                \item SSL/TLS MQTT also available on 8883/tcp
+                \item Websockets supported (but temporarily disabled)
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{firehose.jpg}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 \section{MQTT}
 \begin{frame}
@@ -169,23 +184,6 @@
 \end{frame}
 
 \section{OpenStack Community Infrastructure Firehose}
-\begin{frame}
-	\frametitle{OpenStack Community Infrastructure Firehose}
-    \begin{columns}[T]
-        \begin{column}{.48\textwidth}
-            \begin{itemize}
-                \item An MQTT broker for the OpenStack community infrastructure
-                \item Has anonymous, read-only access via MQTT on 1883/tcp
-                \item SSL/TLS MQTT also available on 8883/tcp
-                \item Websockets supported (but temporarily disabled)
-            \end{itemize}
-        \end{column}
-        \begin{column}{.48\textwidth}
-            \includegraphics[width=\textwidth]{firehose.jpg}
-        \end{column}
-    \end{columns}
-\end{frame}
-
 \begin{frame}
     \frametitle{Mosquitto}
     \begin{columns}[T]
