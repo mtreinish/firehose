@@ -105,6 +105,17 @@
 \end{frame}
 }
 
+\section{Unified Event Bus}
+
+\begin{frame}
+    \frametitle{The problem}
+    \begin{itemize}
+        \item The OpenStack community infrastructure operates >40 services on >250 servers
+        \item Some services depend on automation from
+        \item Several user facing services expose event buses
+    \end{itemize}
+\end{frame}
+
 \section{MQTT Introduction}
 
 \section{MQTT}
@@ -116,6 +127,8 @@
         \item ISO/IEC 20922
         \item Protocol dates back to 1999
         \item Lightweight design, low bandwidth
+        \item Popular in IoT and sensor network applications
+        \item Large application ecosystem
     \end{itemize}
 \end{frame}
 
@@ -139,15 +152,6 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{QoS}
-    \begin{itemize}
-        \item \textbf{0}: The broker/client will deliver the message once, with no confirmation.
-        \item \textbf{1}: The broker/client will deliver the message at least once, with confirmation required.
-        \item \textbf{2}: The broker/client will deliver the message exactly once by using a four step handshake.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
     \frametitle{MQTT Clients}
     \begin{itemize}
         \item Bindings available for most languages
@@ -166,7 +170,7 @@
 
 \section{OpenStack Community Infrastructure Firehose}
 \begin{frame}
-	\frametitle{Firehose}
+	\frametitle{OpenStack Community Infrastructure Firehose}
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \begin{itemize}
