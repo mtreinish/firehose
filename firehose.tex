@@ -148,6 +148,25 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{MQTT Clients}
+    \begin{itemize}
+        \item Bindings available for most languages
+        \item \href{https://github.com/mqtt/mqtt.github.io/wiki/libraries}{https://github.com/mqtt/mqtt.github.io/wiki/libraries}
+        \item \href{https://www.eclipse.org/paho/}{Eclipse Paho} project provides similar interfaces across multiple languages
+    \end{itemize}
+    \vspace{5mm}
+
+    \Wider[4em]{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}MQTT Brokers}
+        \usebeamerfont{normal text}\usebeamercolor[fg]{normal text}
+
+    \begin{itemize}
+        \item Centralized broker
+        \item Many different options: \href{https://github.com/mqtt/mqtt.github.io/wiki/servers}{https://github.com/mqtt/mqtt.github.io/wiki/servers}
+     \end{itemize}
+\end{frame}
+
+
+\begin{frame}
     \frametitle{MQTT Topics and Subscriptions}
         \begin{itemize}
             \item Topics are generated dynamically
@@ -166,41 +185,8 @@
         \end{itemize}
 \end{frame}
 
-\begin{frame}
-    \frametitle{MQTT Clients}
-    \begin{itemize}
-        \item Bindings available for most languages
-        \item \href{https://github.com/mqtt/mqtt.github.io/wiki/libraries}{https://github.com/mqtt/mqtt.github.io/wiki/libraries}
-        \item \href{https://www.eclipse.org/paho/}{Eclipse Paho} project provides similar interfaces across multiple languages
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{MQTT Brokers}
-    \begin{itemize}
-        \item Centralized broker
-        \item Many different options: \href{https://github.com/mqtt/mqtt.github.io/wiki/servers}{https://github.com/mqtt/mqtt.github.io/wiki/servers}
-     \end{itemize}
-\end{frame}
 
 \section{OpenStack Community Infrastructure Firehose}
-\begin{frame}
-    \frametitle{Mosquitto}
-    \begin{columns}[T]
-        \begin{column}{.48\textwidth}
-            \begin{itemize}
-                \item MQTT broker implemented in C
-                \item An Eclipse IoT project
-                \item Support for MQTT v3.1 and v3.1.1
-            \end{itemize}
-        \end{column}
-        \begin{column}{.48\textwidth}
-            \includegraphics[width=\textwidth]{mosquitto.png}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-
 \begin{frame}
     \frametitle{The Firehose}
     \begin{itemize}
@@ -222,6 +208,21 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Mosquitto}
+    \begin{columns}[T]
+        \begin{column}{.48\textwidth}
+            \begin{itemize}
+                \item MQTT broker implemented in C
+                \item An Eclipse IoT project
+                \item Support for MQTT v3.1 and v3.1.1
+            \end{itemize}
+        \end{column}
+        \begin{column}{.48\textwidth}
+            \includegraphics[width=\textwidth]{mosquitto.png}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 \subsection{Services in the Firehose}
 \begin{frame}
