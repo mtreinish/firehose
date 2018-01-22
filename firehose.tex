@@ -186,6 +186,22 @@
         \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{QoS}
+    \begin{itemize}
+        \item 3 QoS Levels:\\
+            \begin{itemize}
+                \item \textbf{0}: The broker/client will deliver the message once, with no confirmation.
+                \item \textbf{1}: The broker/client will deliver the message at least once, with confirmation required.
+                \item \textbf{2}: The broker/client will deliver the message exactly once by using a four step handshake.
+            \end{itemize}
+        \item Max QoS of a message sent with PUBLISH
+        \item Client sends max supported QoS with SUBSCRIBE
+    \end{itemize}
+\end{frame}
+
+
+
 
 \section{OpenStack Community Infrastructure Firehose}
 \begin{frame}
@@ -276,8 +292,15 @@
     \frametitle{Use cases for Firehose}
     \begin{itemize}
         \item 3rd Party CI Operators
-        \item Desktop Notifications
-        \item Inter Service communication
+        \item Desktop Notifications:
+            \begin{itemize}
+                \item mqttwarn: \href{https://github.com/jpmens/mqttwarn}{https://github.com/jpmens/mqttwarn}
+            \end{itemize}
+        \item Inter Service communication:
+            \begin{itemize}
+                \item gerritbot: \href{https://git.openstack.org/cgit/openstack-infra/gerritbot/}{https://git.openstack.org/cgit/openstack-infra/gerritbot/}
+            \end{itemize}
+
     \end{itemize}
 \end{frame}
 
