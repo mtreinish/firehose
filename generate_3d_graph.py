@@ -58,19 +58,21 @@ bench_prune = bench_dat.groupby(
 out_bench = bench_prune.aggregate(np.mean)
 
 fig = plt.figure()
-ax = Axes3D(fig)
 out_bench.reset_index(inplace=True)
-print bench_dat
 
 
 def log_tick_formatter(val, pos=None):
     return str(pow(2, val))
 
-surf = ax.plot_trisurf(np.log2(bench_dat['Subscriber Count']),
-                       np.log2(bench_dat['Publisher Count']),
-                       bench_dat['Subscriber Avg. Throughput'],
-                       cmap=cm.inferno,
-                       linewidth=0.2)
+# surf = ax.plot_trisurf(np.log2(bench_dat['Subscriber Count']),
+#                        np.log2(bench_dat['Publisher Count']),
+#                        bench_dat['Subscriber Avg. Throughput'],
+#                        cmap=cm.inferno,
+#                        linewidth=0.2)
+surf = plt.hexbin(np.log2(bench_dat['Subscriber Count']),
+                  np.log2(bench_dat['Publisher Count']),
+                  C=bench_dat['Subscriber Avg. Throughput'],
+                  gridsize=7)
 
 fig.colorbar(surf, shrink=0.5, aspect=5)
 
@@ -78,24 +80,30 @@ plt.xlabel('Number of Subscribers')
 plt.ylabel('Number of Publishers')
 plt.title('Subscriber Average Throughput (msg/sec)')
 formatter = mticker.FuncFormatter(log_tick_formatter)
-ax.yaxis.set_major_formatter(formatter)
-ax.xaxis.set_major_formatter(formatter)
-plt.savefig('sub_throughput.png', dpi=900)
+axes = plt.gca()
+axes.yaxis.set_major_formatter(formatter)
+axes.xaxis.set_major_formatter(formatter)
+fig.savefig('sub_throughput.png', dpi=900)
 
 fig = plt.figure()
-ax = Axes3D(fig)
-surf = ax.plot_trisurf(np.log2(bench_pub_dat['Publisher Count']),
-                       np.log2(bench_pub_dat['Subscriber Count']),
-                       bench_pub_dat['Publisher Avg. Throughput'],
-                       cmap=cm.inferno,
-                       linewidth=0.2)
+# surf = ax.plot_trisurf(np.log2(bench_pub_dat['Publisher Count']),
+#                        np.log2(bench_pub_dat['Subscriber Count']),
+#                        bench_pub_dat['Publisher Avg. Throughput'],
+#                        cmap=cm.inferno,
+#                        linewidth=0.2)
+surf = plt.hexbin(np.log2(bench_pub_dat['Publisher Count']),
+                  np.log2(bench_pub_dat['Subscriber Count']),
+                  C=bench_pub_dat['Publisher Avg. Throughput'],
+                  gridsize=7)
+
 
 fig.colorbar(surf, shrink=0.5, aspect=5)
 formatter = mticker.FuncFormatter(log_tick_formatter)
-ax.yaxis.set_major_formatter(formatter)
-ax.xaxis.set_major_formatter(formatter)
+axes = plt.gca()
+axes.yaxis.set_major_formatter(formatter)
+axes.xaxis.set_major_formatter(formatter)
 
 plt.ylabel('Number of Subscribers')
 plt.xlabel('Number of Publishers')
 plt.title('Publisher Average Throughput (msg/sec)')
-plt.savefig('pub_throughput.png', dpi=900)
+fig.savefig('pub_throughput.png', dpi=900)
