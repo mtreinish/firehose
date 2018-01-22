@@ -111,8 +111,9 @@
     \frametitle{The problem}
     \begin{itemize}
         \item The OpenStack community infrastructure operates >40 services on >250 servers
-        \item Some services depend on automation from
+        \item Some services depend on automation from others
         \item Several user facing services expose event buses
+        \item A real mess when you try to consume infrastructure events for any purpose
     \end{itemize}
 \end{frame}
 
@@ -160,7 +161,7 @@
         \usebeamerfont{normal text}\usebeamercolor[fg]{normal text}
 
     \begin{itemize}
-        \item Centralized broker
+        \item Relies on a central broker
         \item Many different options: \href{https://github.com/mqtt/mqtt.github.io/wiki/servers}{https://github.com/mqtt/mqtt.github.io/wiki/servers}
      \end{itemize}
 \end{frame}
@@ -272,7 +273,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Applications for Firehose}
+    \frametitle{Use cases for Firehose}
     \begin{itemize}
         \item 3rd Party CI Operators
         \item Desktop Notifications
