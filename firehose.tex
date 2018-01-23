@@ -111,6 +111,7 @@
     \frametitle{The problem}
     \begin{itemize}
         \item The OpenStack community infrastructure operates >40 services on >250 servers
+        \item All the community infrastructure runs on donated public cloud resources
         \item Some services depend on automation from others
         \item Several user facing services expose event buses
         \item A real mess when you try to consume infrastructure events for any purpose
@@ -142,7 +143,8 @@
         \item Formerly MQ Telemetry Transport
         \item ISO/IEC 20922
         \item Protocol dates back to 1999
-        \item Lightweight design, low bandwidth
+        \item Standard Maintained by OASIS
+        \item Lightweight design, low bandwidth, and designed to handle unreliable networking
         \item Popular in IoT and sensor network applications
         \item Large application ecosystem
     \end{itemize}
@@ -195,8 +197,8 @@
                 \item \textbf{1}: The broker/client will deliver the message at least once, with confirmation required.
                 \item \textbf{2}: The broker/client will deliver the message exactly once by using a four step handshake.
             \end{itemize}
-        \item Max QoS of a message sent with PUBLISH
-        \item Client sends max supported QoS with SUBSCRIBE
+        \item QoS of a message sent with each PUBLISH
+        \item Client sends QoS with SUBSCRIBE
     \end{itemize}
 \end{frame}
 
@@ -279,11 +281,13 @@
     \begin{columns}[T]
         \begin{column}{.48\textwidth}
             \textbf{CPU Usage:}\\
-            \includegraphics[width=1.2\textwidth]{manual_load_cpu_usage.png}
+            \vspace{10mm}
+            \includegraphics[width=1.1\textwidth]{manual_load_cpu_usage.png}
         \end{column}
         \begin{column}{.48\textwidth}
             \textbf{Memory Usage:}\\
-            \includegraphics[width=1.2\textwidth]{manual_load_ram_usage.png}
+            \vspace{10mm}
+            \includegraphics[width=1.1\textwidth]{manual_load_ram_usage.png}
         \end{column}
     \end{columns}
 \end{frame}
